@@ -81,13 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Header scroll background effect
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            nav.style.background = 'rgba(255, 255, 255, 0.95)';
-            nav.style.padding = '0.5rem 0';
-            nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.05)';
+            nav.classList.add('scrolled');
         } else {
-            nav.style.background = 'rgba(255, 255, 255, 0.7)';
-            nav.style.padding = '0';
-            nav.style.boxShadow = 'none';
+            nav.classList.remove('scrolled');
         }
     });
 

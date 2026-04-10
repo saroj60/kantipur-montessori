@@ -40,6 +40,13 @@
   
   /* Transitions */
   --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --nav-height: 80px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 64px;
+  }
 }
 
 /* Reset & Base */
@@ -122,16 +129,19 @@ h1, h2, h3, .display-font {
   transition: var(--transition-smooth);
 }
 
+.nav-header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: var(--nav-height);
 }
 
-@media (max-width: 768px) {
-  .nav-container { height: 64px; }
-}
+/* Removed fixed height here as it is now handled by --nav-height variable in :root */
 
 .nav-logo {
   display: flex;
@@ -204,10 +214,10 @@ h1, h2, h3, .display-font {
   .menu-toggle { display: block; }
   .nav-links {
     position: fixed;
-    top: 80px;
+    top: var(--nav-height);
     right: -100%;
     width: 280px;
-    height: calc(100vh - 80px);
+    height: calc(100vh - var(--nav-height));
     background: var(--surface-container-lowest);
     flex-direction: column;
     padding: var(--spacing-12);
